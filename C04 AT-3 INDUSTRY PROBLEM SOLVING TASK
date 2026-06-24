@@ -1,0 +1,420 @@
+1. Hospital Patient Billing System
+Develop a Java program for a hospital billing system using Class and Objects.
+Data Members:
+• Patient ID 
+• Patient Name 
+• Room Type (General/Special) 
+• Number of Days Admitted 
+• Treatment Charges 
+Methods:
+1. Read patient details. 
+2. Calculate room charges based on room type. 
+3. Calculate the total hospital bill. 
+4. Display patient billing details. 
+Note: General Room = ₹1,500/day, Special Room = ₹3,000/day.
+CODE
+import java.util.Scanner;
+
+class Patient {
+    int patientId;
+    String patientName;
+    String roomType;
+    int daysAdmitted;
+    double treatmentCharges;
+    double roomCharges;
+    double totalBill;
+
+    void readDetails() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter Patient ID: ");
+        patientId = sc.nextInt();
+        sc.nextLine();
+
+        System.out.print("Enter Patient Name: ");
+        patientName = sc.nextLine();
+
+        System.out.print("Enter Room Type (General/Special): ");
+        roomType = sc.nextLine();
+
+        System.out.print("Enter Number of Days Admitted: ");
+        daysAdmitted = sc.nextInt();
+
+        System.out.print("Enter Treatment Charges: ₹");
+        treatmentCharges = sc.nextDouble();
+    }
+
+    void calculateRoomCharges() {
+        if (roomType.equalsIgnoreCase("General")) {
+            roomCharges = daysAdmitted * 1500;
+        } else if (roomType.equalsIgnoreCase("Special")) {
+            roomCharges = daysAdmitted * 3000;
+        } else {
+            System.out.println("Invalid Room Type");
+        }
+    }
+
+    void calculateTotalBill() {
+        totalBill = roomCharges + treatmentCharges;
+    }
+
+    void displayDetails() {
+        System.out.println("\nPatient Billing Details");
+        System.out.println("Patient ID: " + patientId);
+        System.out.println("Patient Name: " + patientName);
+        System.out.println("Room Type: " + roomType);
+        System.out.println("Days Admitted: " + daysAdmitted);
+        System.out.println("Room Charges: ₹" + roomCharges);
+        System.out.println("Treatment Charges: ₹" + treatmentCharges);
+        System.out.println("Total Bill: ₹" + totalBill);
+    }
+
+    public static void main(String[] args) {
+        Patient p = new Patient();
+
+        p.readDetails();
+        p.calculateRoomCharges();
+        p.calculateTotalBill();
+        p.displayDetails();
+    }
+}
+OUTPUT
+Enter Patient ID: 101
+Enter Patient Name: Jaya
+Enter Room Type (General/Special): General
+Enter Number of Days Admitted: 5
+Enter Treatment Charges: ₹10000
+
+Patient Billing Details
+Patient ID: 101
+Patient Name: Jaya
+Room Type: General
+Days Admitted: 5
+Room Charges: ₹7500.0
+Treatment Charges: ₹10000.0
+Total Bill: ₹17500.0
+
+2. Airline Ticket Reservation System
+Develop a Java program for an airline reservation system using Class and Objects.
+Data Members:
+• Passenger ID 
+• Passenger Name 
+• Flight Number 
+• Ticket Fare 
+• Number of Tickets 
+Methods:
+1. Read passenger details. 
+2. Calculate total ticket cost. 
+3. Apply a 5% discount if more than 5 tickets are booked. 
+4. Display booking and payment details. 
+Note: GST = 12% on the final amount
+CODE
+import java.util.Scanner;
+
+class AirlineReservation {
+    int passengerId;
+    String passengerName;
+    String flightNumber;
+    double ticketFare;
+    int numberOfTickets;
+    double totalCost, discount, gst, finalAmount;
+
+    void readDetails() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter Passenger ID: ");
+        passengerId = sc.nextInt();
+        sc.nextLine();
+
+        System.out.print("Enter Passenger Name: ");
+        passengerName = sc.nextLine();
+
+        System.out.print("Enter Flight Number: ");
+        flightNumber = sc.nextLine();
+
+        System.out.print("Enter Ticket Fare: ");
+        ticketFare = sc.nextDouble();
+
+        System.out.print("Enter Number of Tickets: ");
+        numberOfTickets = sc.nextInt();
+    }
+
+    void calculateCost() {
+        totalCost = ticketFare * numberOfTickets;
+
+        if (numberOfTickets > 5) {
+            discount = totalCost * 0.05;
+        }
+
+        totalCost = totalCost - discount;
+        gst = totalCost * 0.12;
+        finalAmount = totalCost + gst;
+    }
+
+    void displayDetails() {
+        System.out.println("\nBooking Details");
+        System.out.println("Passenger ID: " + passengerId);
+        System.out.println("Passenger Name: " + passengerName);
+        System.out.println("Flight Number: " + flightNumber);
+        System.out.println("Number of Tickets: " + numberOfTickets);
+        System.out.println("Final Amount: " + finalAmount);
+    }
+
+    public static void main(String[] args) {
+        AirlineReservation a = new AirlineReservation();
+
+        a.readDetails();
+        a.calculateCost();
+        a.displayDetails();
+    }
+}
+OUTPUT
+Enter Passenger ID: 101
+Enter Passenger Name: Jaya
+Enter Flight Number: AI202
+Enter Ticket Fare: 5000
+Enter Number of Tickets: 6
+
+Booking Details
+Passenger ID: 101
+Passenger Name: Jaya
+Flight Number: AI202
+Number of Tickets: 6
+Final Amount: 31920.0
+
+3. Vehicle Rental Management System
+Develop a Java program for a vehicle rental company using Class and Objects.
+Data Members:
+• Customer ID 
+• Customer Name 
+• Vehicle Type (Car/Bike) 
+• Number of Rental Days 
+Methods:
+1. Read customer details. 
+2. Calculate rental charges. 
+3. Add a late return penalty if applicable. 
+4. Display the final rental bill. 
+Note: Car = ₹2,000/day, Bike = ₹500/day.
+CODE
+import java.util.Scanner;
+
+class VehicleRental {
+    int customerId;
+    String customerName;
+    String vehicleType;
+    int rentalDays;
+    double rentalCharges, penalty, finalBill;
+
+    void readDetails() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter Customer ID: ");
+        customerId = sc.nextInt();
+        sc.nextLine();
+
+        System.out.print("Enter Customer Name: ");
+        customerName = sc.nextLine();
+
+        System.out.print("Enter Vehicle Type (Car/Bike): ");
+        vehicleType = sc.nextLine();
+
+        System.out.print("Enter Number of Rental Days: ");
+        rentalDays = sc.nextInt();
+    }
+
+    void calculateRentalCharges() {
+        if (vehicleType.equalsIgnoreCase("Car")) {
+            rentalCharges = rentalDays * 2000;
+        } else if (vehicleType.equalsIgnoreCase("Bike")) {
+            rentalCharges = rentalDays * 500;
+        }
+
+        System.out.print("Enter Late Return Penalty: ");
+        Scanner sc = new Scanner(System.in);
+        penalty = sc.nextDouble();
+
+        finalBill = rentalCharges + penalty;
+    }
+
+    void displayBill() {
+        System.out.println("\nRental Bill Details");
+        System.out.println("Customer ID: " + customerId);
+        System.out.println("Customer Name: " + customerName);
+        System.out.println("Vehicle Type: " + vehicleType);
+        System.out.println("Rental Days: " + rentalDays);
+        System.out.println("Final Bill: " + finalBill);
+    }
+
+    public static void main(String[] args) {
+        VehicleRental v = new VehicleRental();
+
+        v.readDetails();
+        v.calculateRentalCharges();
+        v.displayBill();
+    }
+}
+OUTPUT
+Enter Customer ID: 101
+Enter Customer Name: Jaya
+Enter Vehicle Type (Car/Bike): Car
+Enter Number of Rental Days: 3
+Enter Late Return Penalty: 500
+
+Rental Bill Details
+Customer ID: 101
+Customer Name: Jaya
+Vehicle Type: Car
+Rental Days: 3
+Final Bill: 6500.0
+
+4. Manufacturing Production Monitoring System
+Develop a Java program to monitor daily production in a manufacturing company 
+using Class and Objects.Data Members:
+• Product ID 
+• Product Name 
+• Target Quantity 
+• Produced Quantity 
+Methods:
+1. Read product details. 
+2. Compare actual production with the target. 
+3. Calculate production efficiency percentage. 
+4. Display production status (Achieved/Not Achieved). 
+Note: Efficiency = (Produced Quantity / Target Quantity) × 100.
+CODE
+import java.util.Scanner;
+
+class Production {
+    int productId;
+    String productName;
+    int unitsProduced;
+    int targetUnits;
+
+    void readDetails() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter Product ID: ");
+        productId = sc.nextInt();
+        sc.nextLine();
+
+        System.out.print("Enter Product Name: ");
+        productName = sc.nextLine();
+
+        System.out.print("Enter Units Produced: ");
+        unitsProduced = sc.nextInt();
+
+        System.out.print("Enter Target Units: ");
+        targetUnits = sc.nextInt();
+    }
+
+    void checkProduction() {
+        if (unitsProduced >= targetUnits)
+            System.out.println("Production Target Achieved");
+        else
+            System.out.println("Production Target Not Achieved");
+    }
+
+    void displayDetails() {
+        System.out.println("\nProduction Details");
+        System.out.println("Product ID: " + productId);
+        System.out.println("Product Name: " + productName);
+        System.out.println("Units Produced: " + unitsProduced);
+        System.out.println("Target Units: " + targetUnits);
+    }
+
+    public static void main(String[] args) {
+        Production p = new Production();
+
+        p.readDetails();
+        p.checkProduction();
+        p.displayDetails();
+    }
+}
+OUTPUT
+Enter Product ID: 101
+Enter Product Name: Mobile
+Enter Units Produced: 1200
+Enter Target Units: 1000
+Production Target Achieved
+
+Production Details
+Product ID: 101
+Product Name: Mobile
+Units Produced: 1200
+Target Units: 1000
+
+5. Online Course Enrollment System
+Develop a Java program for an online learning platform using Class and Objects.
+Data Members:
+• Student ID 
+• Student Name 
+• Course Name 
+• Course Fee 
+Methods:
+1. Read student and course details. 
+2. Calculate the payable amount. 
+3. Provide a 15% scholarship discount if the fee exceeds ₹20,000. 
+4. Display enrollment and payment details. 
+Note: Registration fee = ₹500.
+CODE
+import java.util.Scanner;
+
+class OnlineCourse {
+    int studentId;
+    String studentName;
+    String courseName;
+    double courseFee;
+    double payableAmount;
+
+    void readDetails() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter Student ID: ");
+        studentId = sc.nextInt();
+        sc.nextLine();
+
+        System.out.print("Enter Student Name: ");
+        studentName = sc.nextLine();
+
+        System.out.print("Enter Course Name: ");
+        courseName = sc.nextLine();
+
+        System.out.print("Enter Course Fee: ");
+        courseFee = sc.nextDouble();
+    }
+
+    void calculateAmount() {
+        payableAmount = courseFee + 500;
+
+        if (courseFee > 20000) {
+            payableAmount = payableAmount - (courseFee * 0.15);
+        }
+    }
+
+    void displayDetails() {
+        System.out.println("\nEnrollment Details");
+        System.out.println("Student ID: " + studentId);
+        System.out.println("Student Name: " + studentName);
+        System.out.println("Course Name: " + courseName);
+        System.out.println("Payable Amount: " + payableAmount);
+    }
+
+    public static void main(String[] args) {
+        OnlineCourse o = new OnlineCourse();
+
+        o.readDetails();
+        o.calculateAmount();
+        o.displayDetails();
+    }
+}
+OUTPUT
+Enter Student ID: 101
+Enter Student Name: Jaya
+Enter Course Name: Java Programming
+Enter Course Fee: 25000
+
+Enrollment Details
+Student ID: 101
+Student Name: Jaya
+Course Name: Java Programming
+Payable Amount: 21750.0
+
