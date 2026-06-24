@@ -1,0 +1,292 @@
+#LEVEL-2 
+Q[1]In an organization they decide to give bonus to all the employees on New Year. A 
+ 5% bonus on salary is given to the grade A workers and 10% bonus on salary to the
+ grade B workers. Write a program to enter the salary and grade of the employee. 
+ If the salary of the employee is less than $10,000 then the employee gets an extr
+ a 2% bonus on salary Calculate the bonus that has to be given to the employee and
+ print the salary that the employee will get.
+ Sample Input & Output:
+ Enter the grade of the employee: B
+ Enter the employee salary: 50000
+ Salary=50000
+ Bonus=5000.0
+ Total to be paid:55000.0
+ 
+ Testcases: 1. Enter the grade of the employee: A
+ Enter the employee salary: 8000
+ 2. Enter the grade of the employee: C
+ Enter the employee salary: 60000
+ 3. Enter the grade of the employee: B
+ Enter the employee salary: 0
+ 4. Enter the grade of the employee: 38000
+ Enter the employee salary: A
+ Program : import java.util.*;
+ class w123
+ {
+ public static void main(String args[])
+ {
+ 
+ 
+ Scanner s=new Scanner(System.in);
+ char grade=s.next().charAt(0);
+ int Salary=s.nextInt();
+ int Bonus=s.nextInt();
+ System.out.println("Enter the grade of employee="+grade);
+ System.out.println("Enter the Salary="+Salary);
+ if(grade==’A’)
+ {
+ System.out.println("salary="+Salary);
+ System.out.println("Bonus="+Bonus);
+ System.out.println("Total paid="+(Salary+Bonus));
+ }
+ if(grade==’B’)
+ {
+ System.out.println("Salary="+Salary);
+ System.out.println("Bonus="+Bonus);
+ System.out.println("Total Paid="+(Salary+Bonus));
+Submitted Answers Report
+ }
+ }
+ }
+ Input : A
+ 50000
+ 5000
+ Output : Enter the grade of employee=A
+ Enter the Salary=50000
+ salary=50000
+ Bonus=5000
+ Total paid=55000
+ 
+ First Save: 2026-06-23 15:41:11
+ Last Save : 2026-06-23 16:25:54
+ ----------------------------------------------------------------------------------------
+ [2] QID: 47
+ Question : Write a program to read a character until a * is encountered. Also count the numb
+ er of uppercase, lowercase, and numbers entered by the users.
+ Sample Input:
+ Enter * to exit 
+ Enter any character: W
+ Enter any character: d
+ Enter any character: A
+ Enter any character: G
+ Enter any character: g
+ Enter any character: H
+ Enter any character: *
+ Sample Output:
+ Total count of lower case:2
+ Total count of upper case:4
+ Total count of numbers =0
+ 
+ Testcases: 1. 1,7,6,9,5
+ 2. S, Q, l, K,7, j, M
+ 3. M, j, L, &, @, G
+ 4. D, K, I, 6, L, *
+ 5. *, K, A, e, 1, 8, %, *
+ Program : import java.util.*;
+ class q123
+ {
+ public static void main(String args[])
+ {
+ String str;
+ Scanner s=new Scanner (System.in);
+ str=s.nextLine();
+ int count1=0;
+ int count2=0;
+ int count3=0;
+ for(int i=0;i=’A’&&x=’a’&&x=’0’&&x
+ Input : RaMl1*
+ Output : Lower case=2
+ Upper case=2
+ Numbers=1
+QID: 36
+ Question : Write a program to count all the prime and composite numbers entered by the user.
+ Sample Input:
+ Enter the numbers
+ 4
+ 54
+ 29
+ 71
+ 7
+ 59
+ 98
+ 23
+ Sample Output:
+ Composite number:3
+ Prime number:5
+ 
+ Testcases:
+ 1. 33, 41, 52, 61,73,90
+ 2. TEN, FIFTY, SIXTY-ONE, SEVENTY-SEVEN, NINE
+ 3. 45, 87, 09, 5.0 ,2.3, 0.4
+ 4. -54, -76, -97, -23, -33, -98
+ 5. 45, 73, 00, 50, 67, 44
+ 
+ Program : import java.util.*;
+ class q123
+ {
+ public static void main(String args[])
+ {
+ int a[]=new int[5];
+ int count=0;
+ Scanner S=new Scanner(System.in);
+ int s=0;
+ for(int i=0;i
+ Input : 1 2 3 4 5
+ Output : (no output)
+ First Save: 2026-06-23 15:00:38
+ Last Save : 2026-06-23 16:19:49
+ ----------------------------------------------------------------------------------------
+ [4] QID: 13
+ Question : Write a program for matrix multiplication?
+ Sample Input:
+ Mat1 =
+ 1 2
+ 5 3
+ Mat2 =
+ 2 3
+ 4 1
+ Sample Output:
+ Mat Sum =
+ 10 5
+ 22 18
+Submitted Answers Report
+ Program : import java.io.*;
+ import java.util.*;
+ class Q123
+ {
+ public static void main(String args[])
+ {
+ int [][]a=new int [2][2];
+ int [][]b=new int [2][2];
+ int [][]c=new int [2][2];
+ Scanner s=new Scanner (System.in);
+ for(int i=0;i
+ Input : 1 2
+ 5 3
+ 2 3
+ 4 1
+ 
+ Output : 10
+ 5
+ 22
+ 18
+ 
+ First Save: 2026-06-23 14:47:06
+ Last Save : 2026-06-23 16:05:29
+
+#DEBUGGIN 
+[1] QID: 14
+ Question : An array copy operation unintentionally modifies the original array. Identify the
+ issue and implement a proper copying method.
+ import java.util.Arrays;
+ 
+ public class Q14_DeepCopy {
+ public static void main(String[] args) {
+ int arr1[] = {1,2,3};
+ int arr2[] = Arrays.copyOf(arr1, arr1.length);
+ arr2[0] = 100;
+ System.out.println(arr1[0]);
+ }
+ }
+ 
+ Program : import java.util.*;
+ class Q14
+ {Submitted Answers Report
+ public static void main(String args[])
+ {
+ int arr1[]={1,2,3};
+ int arr2[]=arr1;
+ arr2[0]=100;
+ System.out.println(+arr1[0]);
+ }
+ }
+ Input : (no input)
+ Output : 100
+ 
+ First Save: 2026-06-23 13:43:13
+ Last Save : 2026-06-23 13:53:57
+ ----------------------------------------------------------------------------------------
+ [2] QID: 5
+ Question : The given program uses a loop to print numbers from 0 to 4, but it runs infinitel
+ y. Identify the cause and fix the loop.
+ public class Q4_Loop {
+ public static void main(String[] args) {
+ int i = 0;
+ while(i < 5){
+ System.out.println(i);
+ i++;
+ }
+ }
+ }
+ 
+ Program : import java.util.*;
+ class Q4
+ {
+ public static void main(String args[])
+ {
+ int i=0;
+ while(i
+ Input : (no input)
+ Output : 0
+ 1
+ 2
+ 3
+ 4
+ 
+ First Save: 2026-06-23 13:34:06
+ Last Save : 2026-06-23 13:54:01
+ ----------------------------------------------------------------------------------------
+ [3] QID: 11
+ Question : A string concatenation operation does not update the original string. Identify th
+ e issue related to string immutability and fix it.
+ public class Q11_StringConcat {
+ public static void main(String[] args) {
+ String str = "Java";
+ str = str.concat(" Programming");
+ System.out.println(str);
+Submitted Answers Report
+ }
+ }
+ 
+ Program : import java.util.*;
+ class Q11
+ {
+ public static void main(String args[])
+ {
+ String str="java";
+ str=str.concat("programming");
+ System.out.println(str);
+ }
+ }
+ Input : (no input)
+ Output : javaprogramming
+ 
+ First Save: 2026-06-23 13:31:11
+ Last Save : 2026-06-23 13:53:54
+ ----------------------------------------------------------------------------------------
+ [4] QID: 10
+ Question : The program contains an error in array declaration and initialization. Identify t
+ he syntax issue and correct it.
+ import java.util.Arrays;
+ 
+ public class Q9_ArrayDeclaration {
+ public static void main(String[] args) {
+ int arr[] = {1,2,3};
+ System.out.println(Arrays.toString(arr));
+ }
+ }
+ 
+ Program : import java.util.*;
+ class q9_ArrayDeclaration
+ {
+ public static void main(String[] args)
+ {
+ int arr[]={4,2,3};
+ for(int i=0;i
+ Input : (no input)
+ Output : 4
+ 2
+ 3
+ 
+ First Save: 2026-06-23 13:28:01
+ Last Save : 2026-06-23 13:53:50
