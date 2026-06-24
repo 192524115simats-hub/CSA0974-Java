@@ -1,0 +1,115 @@
+DEBUGGIN 
+[1] QID: 14
+ Question : An array copy operation unintentionally modifies the original array. Identify the
+ issue and implement a proper copying method.
+ import java.util.Arrays;
+ 
+ public class Q14_DeepCopy {
+ public static void main(String[] args) {
+ int arr1[] = {1,2,3};
+ int arr2[] = Arrays.copyOf(arr1, arr1.length);
+ arr2[0] = 100;
+ System.out.println(arr1[0]);
+ }
+ }
+ 
+ Program : import java.util.*;
+ class Q14
+ {Submitted Answers Report
+ public static void main(String args[])
+ {
+ int arr1[]={1,2,3};
+ int arr2[]=arr1;
+ arr2[0]=100;
+ System.out.println(+arr1[0]);
+ }
+ }
+ Input : (no input)
+ Output : 100
+ 
+ First Save: 2026-06-23 13:43:13
+ Last Save : 2026-06-23 13:53:57
+ ----------------------------------------------------------------------------------------
+ [2] QID: 5
+ Question : The given program uses a loop to print numbers from 0 to 4, but it runs infinitel
+ y. Identify the cause and fix the loop.
+ public class Q4_Loop {
+ public static void main(String[] args) {
+ int i = 0;
+ while(i < 5){
+ System.out.println(i);
+ i++;
+ }
+ }
+ }
+ 
+ Program : import java.util.*;
+ class Q4
+ {
+ public static void main(String args[])
+ {
+ int i=0;
+ while(i
+ Input : (no input)
+ Output : 0
+ 1
+ 2
+ 3
+ 4
+ 
+ First Save: 2026-06-23 13:34:06
+ Last Save : 2026-06-23 13:54:01
+ ----------------------------------------------------------------------------------------
+ [3] QID: 11
+ Question : A string concatenation operation does not update the original string. Identify th
+ e issue related to string immutability and fix it.
+ public class Q11_StringConcat {
+ public static void main(String[] args) {
+ String str = "Java";
+ str = str.concat(" Programming");
+ System.out.println(str);
+Submitted Answers Report
+ }
+ }
+ 
+ Program : import java.util.*;
+ class Q11
+ {
+ public static void main(String args[])
+ {
+ String str="java";
+ str=str.concat("programming");
+ System.out.println(str);
+ }
+ }
+ Input : (no input)
+ Output : javaprogramming
+ 
+ First Save: 2026-06-23 13:31:11
+ Last Save : 2026-06-23 
+-[4] QID: 10
+ Question : The program contains an error in array declaration and initialization. Identify t
+ he syntax issue and correct it.
+ import java.util.Arrays;
+ 
+ public class Q9_ArrayDeclaration {
+ public static void main(String[] args) {
+ int arr[] = {1,2,3};
+ System.out.println(Arrays.toString(arr));
+ }
+ }
+ 
+ Program : import java.util.*;
+ class q9_ArrayDeclaration
+ {
+ public static void main(String[] args)
+ {
+ int arr[]={4,2,3};
+ for(int i=0;i
+ Input : (no input)
+ Output : 4
+ 2
+ 3
+ 
+ First Save: 2026-06-23 13:28:01
+ Last Save : 2026-06-23 13:53:50
